@@ -51,4 +51,21 @@ QUnit.module('Тестируем функцию format', function () {
 		assert.strictEqual(format(input, 2), expected2);
 		assert.strictEqual(format(input, 3), expected3);
 	});
+
+	QUnit.test('Я верю, что format работает правильно =)', function (assert) {
+		const input = [ 3.3, 2, 1, 0, 4, 5, 6, -77, 1000 ];
+
+		const expected2 =
+			' 3.3 2 1   0\n' +
+			'   4 5 6 -77\n' +
+			'1000';
+
+		const expected3 =
+			'3.3   2    1\n' +
+			'  0   4    5\n' +
+			'  6 -77 1000';
+
+		assert.strictEqual(format(input, 4), expected2);
+		assert.strictEqual(format(input, 3), expected3);
+	});
 });
