@@ -68,4 +68,17 @@ QUnit.module('Тестируем функцию format', function () {
 		assert.strictEqual(format(input, 4), expected2);
 		assert.strictEqual(format(input, 3), expected3);
 	});
+
+	QUnit.test('Отсутствуют параметры функции', function (assert) {
+		assert.strictEqual(format(), '');
+	});
+	QUnit.test('Массив из одного элемента', function (assert) {
+		assert.strictEqual(format([3], 1), '3');
+	});
+	QUnit.test('Пустой входной массив', function (assert) {
+		assert.strictEqual(format([], 2), '');
+	});
+	QUnit.test('Отрицательное число столбцов', function (assert) {
+		assert.strictEqual(format([3, 5, 7], -2), '');
+	});
 });
