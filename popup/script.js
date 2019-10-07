@@ -2,7 +2,7 @@ let container = document.getElementById("container");
 
 let popup1 = document.getElementsByClassName("popup")[0];
 container.addEventListener("click", (event) => {
-    if (event.target !== popup1) {
+    if (!popup1.contains(event.target)) {
         popup1.remove();
     }
 }, true);
